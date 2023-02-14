@@ -1,2 +1,7 @@
 # Kristo_p_sandbox
-Repository for moveit2
+This repository contains packages for MoveIt 2.
+
+Prerequisites:
+ROS2
+
+How to:
