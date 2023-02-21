@@ -21,7 +21,7 @@ or to automatically source it every time:
 `echo 'source /opt/ros/humble/setup.bash' >> ~/.bashrc`
 
 
-## Running
+## Running with Panda
 * Clone the package to your colcon workspace and build it.
 
 * Make sure you have sourced the colcon workspace
