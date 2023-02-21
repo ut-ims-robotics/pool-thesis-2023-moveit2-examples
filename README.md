@@ -6,8 +6,7 @@ This package is made for learning MoveIt 2 Move Group C++ Interface.
 
 [ROS2 installation guide](https://docs.ros.org/en/humble/Installation.html)
 
-* MoveIt 2 source code
-Colcon
+* MoveIt 2 source code and Colcon
 
 [MoveIt2 and Colcon installation guide](https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html)
 
