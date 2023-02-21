@@ -8,12 +8,12 @@ int main(int argc, char * argv[])
   // Initialize ROS and create the Node
   rclcpp::init(argc, argv);
   auto const node = std::make_shared<rclcpp::Node>(
-    "pose_goal",
+    "gripper_open",
     rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)
   );
 
   // Create a ROS logger
-  auto const logger = rclcpp::get_logger("pose_goal");
+  auto const logger = rclcpp::get_logger("gripper_open");
 
   // Create the MoveIt MoveGroup Interface
   using moveit::planning_interface::MoveGroupInterface;
