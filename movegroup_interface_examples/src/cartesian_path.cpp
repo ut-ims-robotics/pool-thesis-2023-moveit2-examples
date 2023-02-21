@@ -44,7 +44,8 @@ int main(int argc, char * argv[])
   start_pose.position.y -= 0.5;
   waypoints.push_back(start_pose);  //Right
 
-  //We want the Cartesian path to be interpolated at a resolution of 1 cm which is why we will specify 0.01 as the max step in Cartesian translation. We will specify the jump threshold as 0.0, effectively disabling it.
+  //We want the Cartesian path to be interpolated at a resolution of 1 cm which is why we will specify 0.01 as the max step in Cartesian translation.
+  //We will specify the jump threshold as 0.0, effectively disabling it.
   moveit_msgs::msg::RobotTrajectory trajectory;
   const double jump_threshold = 0.0;
   const double eef_step = 0.01;
