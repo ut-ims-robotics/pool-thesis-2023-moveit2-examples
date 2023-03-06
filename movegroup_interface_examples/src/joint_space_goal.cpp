@@ -20,7 +20,7 @@ int main(int argc, char * argv[])
   executor.add_node(node);
   auto spinner = std::thread([&executor]() { executor.spin(); });
 
-  // Create the MoveIt MoveGroup Interface
+  // Create the MoveIt MoveGroup Interface for panda arm
   using moveit::planning_interface::MoveGroupInterface;
   auto move_group_interface = MoveGroupInterface(node, "panda_arm");
 
@@ -31,16 +31,13 @@ int main(int argc, char * argv[])
   joint_group_positions[0] = -1.57;  // radians
   move_group_interface.setJointValueTarget(joint_group_positions);
 
-  // Create a plan to that target pose
-  auto const [success, plan] = [&move_group_interface]{
-    moveit::planning_interface::MoveGroupInterface::Plan msg;
-    auto const ok = static_cast<bool>(move_group_interface.plan(msg));
-    return std::make_pair(ok, msg);
-  }();
+  // Create a plan to these joint values and check if that plan is successful
+  moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+  bool success = (move_group_interface.plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
 
-  // Execute the plan
+  // If the plan is successful, execute the plan
   if(success) {
-    move_group_interface.execute(plan);
+    move_group_interface.execute(my_plan);
   } else {
     RCLCPP_ERROR(logger, "Planing failed!");
   }

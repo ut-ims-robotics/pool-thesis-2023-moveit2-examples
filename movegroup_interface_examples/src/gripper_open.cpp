@@ -15,24 +15,20 @@ int main(int argc, char * argv[])
   // Create a ROS logger
   auto const logger = rclcpp::get_logger("gripper_open");
 
-  // Create the MoveIt MoveGroup Interface
+  // Create the MoveIt MoveGroup Interface for panda hand (gripper)
   using moveit::planning_interface::MoveGroupInterface;
-  
-  //
   auto move_group_interface = MoveGroupInterface(node, "hand");
 
+  // Named goal for gripper to open, use "close" to close the gripper
   move_group_interface.setNamedTarget("open");
 
-  // Create a plan to that target pose
-  auto const [success, plan] = [&move_group_interface]{
-    moveit::planning_interface::MoveGroupInterface::Plan msg;
-    auto const ok = static_cast<bool>(move_group_interface.plan(msg));
-    return std::make_pair(ok, msg);
-  }();
+  // Create a plan to that target pose and check if that plan is successful
+  moveit::planning_interface::MoveGroupInterface::Plan my_plan;
+  bool success = (move_group_interface.plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
 
-  // Execute the plan
+  // If the plan is successful, execute the plan
   if(success) {
-    move_group_interface.execute(plan);
+    move_group_interface.execute(my_plan);
   } else {
     RCLCPP_ERROR(logger, "Planing failed!");
   }
