@@ -7,10 +7,7 @@ int main(int argc, char * argv[])
 {
   // Initialize ROS and create the Node
   rclcpp::init(argc, argv);
-  auto const node = std::make_shared<rclcpp::Node>(
-    "joint_goal",
-    rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)
-  );
+  auto const node = std::make_shared<rclcpp::Node>("joint_goal");
 
   // Create a ROS logger
   auto const logger = rclcpp::get_logger("joint_goal");

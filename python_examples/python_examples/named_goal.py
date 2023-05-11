@@ -36,5 +36,7 @@ def main():
     else:
         logger.error("Planning failed")
     
+    rclpy.shutdown()
+
 if __name__ == "__main__":
     main()

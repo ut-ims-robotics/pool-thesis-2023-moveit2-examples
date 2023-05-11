@@ -52,8 +52,11 @@ def main():
     if plan_result:
         robot_trajectory = plan_result.trajectory
         panda.execute(robot_trajectory, blocking=True, controllers=[])
+
     else:
         logger.error("Planning failed")
 
+    rclpy.shutdown()
+    
 if __name__ == "__main__":
     main()

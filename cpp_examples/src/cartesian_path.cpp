@@ -7,10 +7,7 @@ int main(int argc, char * argv[])
 {
   // Initialize ROS and create the Node
   rclcpp::init(argc, argv);
-  auto const node = std::make_shared<rclcpp::Node>(
-    "cartesian_path",
-    rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)
-  );
+  auto const node = std::make_shared<rclcpp::Node>("cartesian_path");
 
   // Create a ROS logger
   auto const logger = rclcpp::get_logger("cartesian_path");
@@ -35,14 +32,25 @@ int main(int argc, char * argv[])
   // Current pose
   geometry_msgs::msg::Pose start_pose = move_group_interface.getCurrentPose().pose;
 
+  // Variable for first target pose waypoint
+  geometry_msgs::msg::Pose target_pose = start_pose;
+
   // Move diagonally
-  start_pose.position.x += 0.2; //Forward
-  start_pose.position.z += 0.2; //Up
-  waypoints.push_back(start_pose); 
+  target_pose.position.x += 0.1; //Forward
+  target_pose.position.z += 0.2; //Up
+
+  // Add target pose to waypoints
+  waypoints.push_back(target_pose); 
+
+  // Variable for next target pose
+  geometry_msgs::msg::Pose target_pose2 = target_pose;
 
   // Move only along one axis
-  start_pose.position.y -= 0.5;
-  waypoints.push_back(start_pose);  //Right
+  target_pose2.position.y -= 0.1; //Right
+
+  // Add next target pose to waypoints
+  waypoints.push_back(target_pose2);
+
 
   // We want the Cartesian path to be interpolated at a resolution of 1 cm which is why we will specify 0.01 as the max step in Cartesian translation
   // We will specify the jump threshold as 0.0, effectively disabling it
@@ -54,9 +62,9 @@ int main(int argc, char * argv[])
   double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step,   jump_threshold, trajectory);
   RCLCPP_INFO(logger, "Visualizing Cartesian path plan (%.2f%% achieved)", fraction * 100.0);
 
-  //Uncomment next line to execute the planned trajectory, also check if fraction is 1
-  //move_group_interface.execute(trajectory);
-  
+  // Execute the trajectory
+  move_group_interface.execute(trajectory);
+
   // Shutdown
   rclcpp::shutdown();
   spinner.join();
