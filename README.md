@@ -24,6 +24,14 @@ It contains two packages with code examples that demonstrate the usage of MoveIt
 >
 >`git clone https://github.com/ros-planning/moveit2_tutorials -b main --depth 1`
 
+* **Make sure you have sourced ROS.**
+
+`source /opt/ros/humble/setup.bash`
+
+or to source it automatically 
+
+`echo '/opt/ros/humble/setup.bash' >> ~/.bashrc`
+
 ## Using C++ and Python code examples on Franka Emika Panda robot
 
 >In the following commands, replace ws_moveit2 with the name of your workspace if it is different.
@@ -39,6 +47,14 @@ It contains two packages with code examples that demonstrate the usage of MoveIt
 `cd ~/ws_moveit2`
 
 `colcon build`
+
+* **Make sure you have sourced your workspace.**
+
+`source ~/ws_moveit2/install/setup.bash`
+
+or to source it automatically 
+
+`echo 'source ~/ws_moveit2/install/setup.bash' >> ~/.bashrc`
 
 * **Follow the guide in the README.md in either package to use the code examples.**
 
