@@ -1,6 +1,6 @@
 This package is made for learning MoveIt 2 MoveItPy library.
 
-Keep in mind that this Python API is still in development for MoveIt 2.
+Keep in mind that Python support is still in development for MoveIt 2.
 
 ## Running with Panda
 * Make sure you have this package in your workspace and it is built with Colcon.
