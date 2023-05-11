@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>movegroup_interface_examples</name>
+  <name>cpp_examples</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>This package contains Move Group Interface examples for controlling Panda robot.</description>
   <maintainer email="kristopool@gmail.com">kristo</maintainer>
   <license>TODO: License declaration</license>
 

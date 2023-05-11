@@ -8,30 +8,28 @@ int main(int argc, char * argv[])
   // Initialize ROS and create the Node
   rclcpp::init(argc, argv);
   auto const node = std::make_shared<rclcpp::Node>(
-    "joint_space_goal",
+    "pose_goal",
     rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)
   );
 
   // Create a ROS logger
-  auto const logger = rclcpp::get_logger("joint_space_goal");
+  auto const logger = rclcpp::get_logger("pose_goal");
 
-  // We spin up a SingleThreadedExecutor so we can get current joint values later
-  rclcpp::executors::SingleThreadedExecutor executor;
-  executor.add_node(node);
-  auto spinner = std::thread([&executor]() { executor.spin(); });
-
-  // Create the MoveIt MoveGroup Interface for panda arm
+  // Create the MoveIt Move Group Interface for panda arm
   using moveit::planning_interface::MoveGroupInterface;
   auto move_group_interface = MoveGroupInterface(node, "panda_arm");
 
-  // Get all joint positions
-  std::vector<double> joint_group_positions = move_group_interface.getCurrentJointValues();
+  // Create a target Pose for the end-effector
+  geometry_msgs::msg::Pose target_pose;
+  target_pose.orientation.w = 1.0;
+  target_pose.position.x = 0.28;
+  target_pose.position.y = -0.2;
+  target_pose.position.z = 0.5;
 
-  // Sets the first joint value
-  joint_group_positions[0] = -1.57;  // radians
-  move_group_interface.setJointValueTarget(joint_group_positions);
+  // Set the target pose
+  move_group_interface.setPoseTarget(target_pose);
 
-  // Create a plan to these joint values and check if that plan is successful
+  // Create a plan to that target pose and check if that plan is successful
   moveit::planning_interface::MoveGroupInterface::Plan my_plan;
   bool success = (move_group_interface.plan(my_plan) == moveit::core::MoveItErrorCode::SUCCESS);
 
@@ -42,8 +40,7 @@ int main(int argc, char * argv[])
     RCLCPP_ERROR(logger, "Planing failed!");
   }
 
-  // Shutdown ROS
+  // Shutdown
   rclcpp::shutdown();
-  spinner.join();
   return 0;
 }

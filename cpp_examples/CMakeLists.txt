@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(movegroup_interface_examples)
+project(cpp_examples)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -21,9 +21,9 @@ ament_target_dependencies(
   "rclcpp"
 )
 
-add_executable(joint_space_goal src/joint_space_goal.cpp)
+add_executable(joint_goal src/joint_goal.cpp)
 ament_target_dependencies(
-  joint_space_goal
+  joint_goal
   "moveit_ros_planning_interface"
   "rclcpp"
 )
@@ -58,7 +58,7 @@ ament_target_dependencies(
 
 install(TARGETS pose_goal
   DESTINATION lib/${PROJECT_NAME})
-install(TARGETS joint_space_goal
+install(TARGETS joint_goal
   DESTINATION lib/${PROJECT_NAME})
 install(TARGETS cartesian_path
   DESTINATION lib/${PROJECT_NAME})

@@ -21,7 +21,7 @@ int main(int argc, char * argv[])
   auto spinner = std::thread([&executor]() { executor.spin(); });
 
 
-  // Create the MoveIt MoveGroup Interface for panda arm
+  // Create the MoveIt Move Group Interface for panda arm
   using moveit::planning_interface::MoveGroupInterface;
   auto move_group_interface = MoveGroupInterface(node, "panda_arm");
 
@@ -57,7 +57,7 @@ int main(int argc, char * argv[])
   //Uncomment next line to execute the planned trajectory, also check if fraction is 1
   //move_group_interface.execute(trajectory);
   
-  // Shutdown ROS
+  // Shutdown
   rclcpp::shutdown();
   spinner.join();
   return 0;
