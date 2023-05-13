@@ -1,6 +1,8 @@
-This package is made for learning MoveIt 2 MoveItPy library.
+# This package is made for learning MoveIt 2 MoveItPy.
 
-Keep in mind that Python support is still in development for MoveIt 2.
+This package contains code examples for visualizing and controlling a Franka Emika Panda robot with MoveIt 2 using MoveItPy API.
+
+>Keep in mind that Python support is still in development for MoveIt 2. You should use the **main** branch of MoveIt 2.
 
 ## Running with Panda
 * Make sure you have this package in your workspace and it is built with Colcon.
@@ -17,7 +19,7 @@ Keep in mind that Python support is still in development for MoveIt 2.
 
 In another terminal, use the following commands for demonstration of different goals. Feel free to read the commented code for each example to understand how it works.
 
->Note that we are not just running a script, but instead launching a launch file, which also initializes configuration files that are required for using MoveIt2 with Python.
+>Note that we are not just running a script, but instead launching a launch file, which also initializes configuration files that are required for using MoveIt 2 with Python.
 >
 >Additionally, using MoveIt 2 with Python lacks some functionalities that the C++ interface has. Because of this, there are less examples for Python.
 
