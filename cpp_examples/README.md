@@ -9,7 +9,7 @@ This package contains code examples for visualizing and controlling a Franka Emi
 
 * Visualize the Panda Arm in RViz
 
-`ros2 launch moveit2_tutorials demo.launch.py rviz_tutorial:=false`
+`ros2 launch moveit2_tutorials demo.launch.py`
 
 >You can use the interactive markers to set goal poses for the robot and then press "Plan & execute" to move the robot.
 
