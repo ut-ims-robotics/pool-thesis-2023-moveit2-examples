@@ -1,4 +1,6 @@
-This package is made for learning MoveIt 2 Move Group C++ Interface.
+# Package for learning MoveIt 2 Move Group C++ Interface
+
+This package contains code examples for visualizing and controlling a Franka Emika Panda robot with MoveIt 2 Move Group Interface.
 
 ## Running with Panda
 * Make sure you have this package in your workspace and it is built with Colcon.
