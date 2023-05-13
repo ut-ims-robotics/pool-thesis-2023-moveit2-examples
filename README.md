@@ -5,7 +5,6 @@ It contains two packages with code examples that demonstrate the usage of MoveIt
 
 > When using the commands provided in this guide, replace ws_moveit2 with the name of your workspace if it is different.
 
-
 ## Prerequisites
 * **ROS2 (Humble Hawksbill)**
 
@@ -71,7 +70,7 @@ MoveIt 2 planning demonstrations are done on a Franka Emika Panda robot. If you 
 
 By default, [MoveIt 2 Tutorials](https://github.com/ros-planning/moveit2_tutorials) source that we use comes with support for Franka Emika Panda, Fanuc M-10iA and PR2 robots.
 
-To use xArm or UR robots, follow the guide below. For other robots, [follow this guide](https://moveit.picknik.ai/humble/doc/examples/examples.html#integration-with-a-new-robot).
+To use xArm robot, follow the guide below. For other robots, [follow this guide](https://moveit.picknik.ai/humble/doc/examples/examples.html#integration-with-a-new-robot).
 
 ## Using MoveIt 2 with xArm robots
 
@@ -130,5 +129,3 @@ or when using real xArm6
 **Joint-space goal** - setting a value to each joint of the robot:
 
 `ros2 launch xarm_planner test_xarm_planner_api_joint.launch.py dof:=6 robot_type:=xarm`
-
-## Using MoveIt 2 with UR robots
