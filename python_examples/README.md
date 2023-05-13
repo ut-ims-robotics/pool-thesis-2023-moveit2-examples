@@ -19,10 +19,6 @@ This package contains code examples for visualizing and controlling a Franka Emi
 
 In another terminal, use the following commands for demonstration of different goals. Feel free to read the commented code for each example to understand how it works.
 
->Note that we are not just running a script, but instead launching a launch file, which also initializes configuration files that are required for using MoveIt 2 with Python.
->
->Additionally, using MoveIt 2 with Python lacks some functionalities that the C++ interface has. Because of this, there are less examples for Python.
-
 **Pose goal** - setting a target pose for the end-effector:
 
 `ros2 launch python_examples python_examples.launch.py example_file:=pose_goal`
@@ -34,3 +30,7 @@ In another terminal, use the following commands for demonstration of different g
 **Joint-space goal** - setting a value to each joint of the robot:
 
 `ros2 launch python_examples python_examples.launch.py example_file:=joint_goal`
+
+>Note that we are not just running a script, but instead launching a launch file, which also initializes configurations that are required for using MoveIt 2 with Python.
+>
+>Additionally, for now, using MoveIt 2 with Python lacks some functionalities that the C++ interface has. Because of this, there are less examples for Python.
