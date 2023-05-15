@@ -15,7 +15,7 @@ This package contains code examples for visualizing and controlling a Franka Emi
 
 * Demonstration of different goals
 
-In another terminal, use the following commands for demonstration of different goals. Feel free to read the commented code for each example to understand how it works.
+In another terminal, use the following commands for demonstration of different goals. Feel free to read the commented code for each example in src directory to understand how it works.
 
 **Pose goal** - setting a target pose for the end-effector:
 
