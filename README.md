@@ -1,4 +1,7 @@
 # Kristo_p_sandbox
+
+<img src="https://moveit.ros.org/assets/logo/moveit_logo-black.png" alt="MoveIt Logo" width="200"/>
+
 This repository is made for learning MoveIt 2.
 
 It contains two packages with code examples that demonstrate the usage of MoveIt 2 through C++ and Python API for the Franka Emika Panda robot.
@@ -14,7 +17,7 @@ It contains two packages with code examples that demonstrate the usage of MoveIt
 
 [MoveIt2 and Colcon installation guide](https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html)
 
-It is important that we use MoveIt 2 Tutorials as our source, because it also includes the description for the Panda robot and visualising tools.
+It is important that we use MoveIt 2 Tutorials as our source, because it also contains the description for the Panda robot and visualising tools.
 
 >If you want to use MoveIt 2 with just C++, it is recommended to use the **humble** branch of MoveIt 2, as it is currently the latest stable release. In this case you can fully follow the installation guide.
 >
@@ -37,6 +40,8 @@ or to source it automatically
 `echo '/opt/ros/humble/setup.bash' >> ~/.bashrc`
 
 ## Using C++ and Python code examples on Franka Emika Panda robot
+
+<img src="http://www.bolee.com.hk/wp-content/uploads/2021/09/Franka_Panda_204-scaled.jpg" alt="Franka Emika Panda" width="480"/>
 
 * **Make sure you have installed ROS2 and created a workspace with Colcon that includes MoveIt 2 tutorials.**
 
@@ -73,6 +78,8 @@ By default, [MoveIt 2 Tutorials](https://github.com/ros-planning/moveit2_tutoria
 To use xArm robot, follow the guide below. For other robots, [follow this guide](https://moveit.picknik.ai/humble/doc/examples/examples.html#integration-with-a-new-robot).
 
 ## Using MoveIt 2 with xArm robots
+
+<img src="https://cdn.shopify.com/s/files/1/0573/1483/6648/products/uarm-xarm-6-robotic-arm-1_600x.jpg?v=1681914771" alt="xArm 6" height="320"/>
 
 >You can view the in-depth guide [here](https://github.com/xArm-Developer/xarm_ros2/tree/humble).
 
