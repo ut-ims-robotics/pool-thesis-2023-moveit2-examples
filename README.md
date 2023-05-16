@@ -1,4 +1,4 @@
-# Kristo_p_sandbox
+# MoveIt 2 examples
 
 <img src="https://moveit.ros.org/assets/logo/moveit_logo-black.png" alt="MoveIt Logo" width="200"/>
 
