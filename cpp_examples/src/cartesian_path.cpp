@@ -62,9 +62,11 @@ int main(int argc, char * argv[])
   double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step,   jump_threshold, trajectory);
   RCLCPP_INFO(logger, "Visualizing Cartesian path plan (%.2f%% achieved)", fraction * 100.0);
 
-  // Execute the trajectory
-  move_group_interface.execute(trajectory);
-
+  // Check if complete path is possible and execute the trajectory
+  if(fraction == 1){
+    move_group_interface.execute(trajectory);
+  }
+  
   // Shutdown
   rclcpp::shutdown();
   spinner.join();
