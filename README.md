@@ -51,7 +51,7 @@ This was covered in the Prerequisites chapter.
 
 `cd ~/ws_moveit2/src`
 
-`git clone https://github.com/ut-ims-robotics-sandbox/Kristo_p_sandbox.git`
+`git clone https://github.com/ut-ims-robotics/pool-thesis-2023-moveit2-examples.git`
 
 * **Build the workspace. Note that building your workspace for the first time might take a long time, even up to a few hours.**
 
